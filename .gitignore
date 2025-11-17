@@ -4,3 +4,12 @@ feature_verification.py
 object_csvs/
 year_17/
 .venv/
+.claude/
+.venv/
+# graphs_enhanced_v2/
+rp2.pdf
+profiles_lookup.pkl
+CLAUDE.md
+RESEARCH_FINDINGS.md
+archive/
+
