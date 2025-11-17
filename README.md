@@ -1,19 +1,35 @@
-# Influencer Rank
+# InfluencerRank
 
-This project processes social media data to build monthly interaction graphs, capturing relationships between influencers, users, hashtags, and objects.
+Temporal graph neural network for predicting influencer engagement rates. Uses GCN + GRU architecture to model influencer behavior over time.
+
+### Results
+
+- **NDCG@50: 0.70** (ensemble of 5 models)
+- Predicts October engagement using January-September data
+- No data leakage (engagement-derived features removed)
 
 ### File Overview
 
-- `combine_csv.py`: Merges object detection CSVs.
-- `build_graph.py`: Builds monthly graphs from raw data.
-- `add_features.py`: Adds features to the graph nodes.
-- `final_verification.py`: Verifies the integrity of the graphs.
+- `parse_profiles.py`: Parses influencer profiles from `influencers.txt` to create `profiles_lookup.pkl`
+- `build_enhanced_graphs.py`: Builds monthly heterogeneous graphs with 37-dim features
+- `verify_graph.py`: Verifies graph structure and feature integrity
+- `final-v1.ipynb`: Model using self-loop GCN (baseline)
+- `final-v2.ipynb`: Model using actual graph structure (influencer→hashtag/user/object)
 
 ### Usage
 
-1.  Add your data to the `year_17` and `object_csvs` directories.
-2.  Run the scripts in order:
-    - `python combine_csv.py`
-    - `python build_graph.py`
-    - You can verify the output with `python final_verification.py`.
-3. `python add_features.py`
+1. Prepare your data:
+   - `year_17/` - monthly post data (Jan-Dec subdirectories)
+   - `influencers.txt` - profile information
+   - `image_objects.csv` - detected objects per post
+
+2. Build graphs:
+   ```bash
+   python parse_profiles.py
+   python build_enhanced_graphs.py
+   python verify_graph.py graphs_enhanced_v2/oct_graph.pt
+   ```
+
+3. Train model:
+   - Run `final-v2.ipynb` in Jupyter/Kaggle
+   - Outputs: NDCG@50 score and ranking predictions
