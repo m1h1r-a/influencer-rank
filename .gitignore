@@ -1,15 +1,67 @@
-todo.txt
-image_objects.csv
-feature_verification.py
-object_csvs/
+# Data directories
 year_17/
-.venv/
-.claude/
-.venv/
-# graphs_enhanced_v2/
-rp2.pdf
+object_csvs/
+
+# Large data files
+image_objects.csv
 profiles_lookup.pkl
-CLAUDE.md
-RESEARCH_FINDINGS.md
+influencers.txt
+
+# Generated/trained models and graphs
+graphs_enhanced_v*/
+saved_models_*/
+*.pt
+*.pth
+
+# Generated outputs
+rankings.csv
+
+# Archive (old experiments)
 archive/
 
+# Python
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Jupyter
+.ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Claude Code
+.claude/
+todo.txt
+
+# OS
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Research papers (potential copyright)
+*.pdf
+
+# Temporary files
+*.log
+*.tmp
+feature_verification.py
+RESEARCH_FINDINGS.md
