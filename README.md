@@ -11,12 +11,9 @@ graph LR
     A[Raw Instagram Data] --> B[Extract Image Objects]
     B --> C[Parse Profiles]
     C --> D[Build Monthly Graphs]
-    D --> E[Verify Graphs]
+    D --> E[Upload to Kaggle]
     E --> F[Train Model]
     F --> G[Generate Rankings]
-
-    style F fill:#90EE90
-    style G fill:#87CEEB
 ```
 
 ## Quick Start
@@ -33,7 +30,7 @@ graph LR
 
 ### Step 1: Extract Image Objects
 
-Use an object detection model (e.g., YOLO, Detectron2) to extract objects from images:
+Use an object detection model () to extract objects from images:
 
 ```bash
 # This step requires an object detection model
@@ -113,7 +110,6 @@ rank,influencer,predicted_score,actual_engagement
 ├── predict_rankings.py                   # Inference script
 ├── build_enhanced_graphs_v3_fixed.py     # Graph builder
 ├── parse_profiles.py                     # Profile parser
-├── verify_graph.py                       # Graph verification
 ├── graphs_enhanced_v3/                   # Generated graphs (gitignored)
 ├── saved_models_v8_final/                # Trained model (gitignored)
 └── year_17/                              # Raw data (gitignored)

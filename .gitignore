@@ -47,6 +47,8 @@ build/
 # Claude Code
 .claude/
 todo.txt
+CLAUDE.md
+INFERENCE_README.md
 
 # OS
 .DS_Store
